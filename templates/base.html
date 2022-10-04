@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+  <title>Geekochad</title>
+</head>
+
+<body>
+
+  <div class="container my-3 mx-6">
+
+    <header>
+      <div class="container mx-6 px-4">
+        <nav class="navbar navbar-dark">
+          <div class="container">
+            <div class="col-md-4 col-lg-4 text-start">
+              <!-- Кнопка вызова меню offCanvas -->
+              <a class="menu-btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                aria-controls="offcanvas">
+                <i class="bi bi-list"></i>
+                Меню
+              </a>
+            </div>
+            <div class="offcanvas offcanvas-start main-bg-color" data-bs-scroll="true" tabindex="-1"
+              id="offcanvasExample" aria-labelledby="offcanvasleLabel">
+              <div class="offcanvas-body">
+                <h class="bigText" id="offcanvasExampleLabel">Меню</h>
+                <!-- Кнопка закрытия меню offCanvas -->
+                <a type="button" class="menuClose-btn" data-bs-dismiss="offcanvas" aria-label="Закрыть">
+                  <i class="bi bi-x-circle"></i>
+                </a>
+                <hr class="divider">
+                <ul class="sidebar-menu">
+                  <li>
+                    <h class="menuText">Навигация</h>
+                  </li>
+                  <li><a class="hrefText" href="{% url 'shop:main' %}">Главная</a></li>
+                  <li><a class="hrefText" href="{% url 'shop:product_list' %}">Все товары</a></li>
+                  <li><a class="hrefText" href="#">Новости</a></li>
+                </ul>
+                <hr class="divider">
+                <ul class="sidebar-menu">
+                  <li>
+                    <h class="menuText">Помощь</h>
+                  </li>
+                  <li><a class="hrefText" href="#">FAQ</a></li>
+                  <li><a class="hrefText" href="#">Доставка и оплата</a></li>
+                </ul>
+                <hr class="divider">
+                <ul class="sidebar-menu">
+                  <li>
+                    <h class="menuText">Информация</h>
+                  </li>
+                  <li><a class="hrefText" href="#">О нас</a></li>
+                  <li><a class="hrefText" href="#">Публичная оферта</a></li>
+                  <li><a class="hrefText" href="#">Пользовательское соглашение</a></li>
+                  <li><a class="hrefText" href="#">Политика конфиденциальности</a></li>
+                </ul>
+                <hr class="divider">
+                <ul class="sidebar-menu">
+                  <li>
+                    <h class="menuText">Мы в социальных сетях</h>
+                  </li>
+                  <li><a class="hrefText" href="#">Instagram</a></li>
+                  <li><a class="hrefText" href="#">ВКонтакте</a></li>
+                  <li><a class="hrefText" href="#">Twitter</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Geekochad logo -->
+            <div class="col-md-4 col-lg-4 text-center">
+              <a href="{% url 'shop:main' %}" class="logo-text">Geekochad</a>
+            </div>
+            <!-- Кнопки справа -->
+            <div class="col-md-4 col-lg-4 text-end">
+              <div class="btn-group">
+                <a href="#" class="main-btns"><i class="bi bi-search"></i></a>
+                <a href="#" class="main-btns"><i class="bi bi-person-circle"></i></a>
+                <a href="#" class="main-btns"><i class="bi bi-heart"></i></a>
+                <a href="{% url 'cart:cartView' %}" class="main-btns"><i class="bi bi-cart"></i></a>
+              </div>
+            </div>
+          </div> 
+        </nav>  
+      </div>
+
+      <hr class="bigDivider">
+
+      <!-- Категории товаров -->
+      <div class="container">
+        <ul class="catalog text-center">
+          {% for c in categories %}
+          <li>
+              <a class="hrefProductText" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </header>
+
+
+    {% block content %} {% endblock %}
+
+
+    <!-- Footer -->
+    <hr class="bigDivider">
+    <div class="container my-3 mx-6">
+      <footer class="main-bg-color text-white">
+        <section class=" mx-1 p-4 pt-0">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-4 col-lg-4 pt-4 text-center text-md-start">
+              <p>© 2022. All rights reserved by Geekochad</p>
+            </div>
+            <div class="col-md-4 col-lg-4 text-center text-md-center">
+              <a class="logo-text" href="#">Geekochad</a>
+            </div>
+            <div class="col-md-4 col-lg-4 text-center text-md-end">
+              <img src="https://img.icons8.com/nolan/512/mastercard.png" width="50" height="50" />
+              <img src="https://img.icons8.com/nolan/512/visa.png" width="50" height="50" />
+              <img src="https://img.icons8.com/nolan/512/paypal.png" width="40" height="40" />
+            </div>
+          </div>
+        </section>
+      </footer>
+    </div>
+
+
+  </div>
+  <!-- JavaScripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  
+</body>
+
+</html>

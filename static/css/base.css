@@ -1,0 +1,396 @@
+/* Подключение иконок Bootstrap */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+
+/* Кнопка меню*/
+.menu-btn {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.menu-btn:visited {
+    color: rgb(255, 255, 255);
+}
+.menu-btn:hover {
+    color: rgb(200, 255, 138);
+}
+
+
+/* Кнопка закрытия меню offCanvas */
+.menuClose-btn {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    position: absolute;
+    right:-40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.menuClose-btn:visited {
+    color: rgb(255, 255, 255);
+}
+.menuClose-btn:hover {
+    color: rgb(200, 255, 138);
+}
+
+
+/* Big menu text */
+.bigText {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-left: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* Разделительная линия для списков внутри offCanvas */
+.divider {
+    color: rgb(200, 255, 138);
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+
+/* Разделительная линия БОЛЬШАЯ */
+.bigDivider {
+    color: rgb(200, 255, 138);
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-left: 40px;
+    margin-right: 40px;
+
+}
+
+
+/* Полоса прокрутки*/
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(53, 52, 52);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(115, 114, 119);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(153, 148, 161);
+}
+
+
+/* Список внутри меню offCanvas */
+.sidebar-menu {
+    list-style-type: none;
+    text-indent: -15px;
+    line-height: 33px;
+    max-height: 300px;
+    overflow-y:auto;
+}
+
+
+/* Основной текст для ссылок  */
+.hrefText {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.hrefText:visited {
+    color: rgb(255, 255, 255);
+}
+.hrefText:hover {
+    color: rgb(200, 255, 138);
+}
+
+
+/* Текст для фильтров  */
+.filterText {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.filterText:visited {
+    color: rgb(255, 255, 255);
+}
+.filterText:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+/* Текст для ссылок на товары  */
+.hrefProductText {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.hrefProductText:visited {
+    color: rgb(255, 255, 255);
+}
+.hrefProductText:hover {
+    color: rgb(213, 164, 247);
+}
+
+
+/* Стандартный белый текст */
+.menuText {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* Текст для товаров */
+.baseText {
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.smallBaseText {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.descriptionText {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* Лого */
+.logo-text {
+    font-size: 37px;
+    color: rgb(200, 255, 138);
+    text-decoration: none;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.logo-text:hover {
+    color: rgb(213, 164, 247);
+}
+
+
+/* Основные кнопки в правой части навбара */
+.main-btns {
+    font-size: 22px;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+.main-btns:visited {
+    color: rgb(255, 255, 255);
+}
+.main-btns:hover {
+    color: rgb(200, 255, 138);
+}
+
+
+/* Цвет фона */
+body {
+    background-color: rgb(43, 38, 41);
+}
+
+
+/* Цвет панелей навигации */
+.main-bg-color {
+    background-color: rgb(43, 38, 41);
+}
+
+
+/* Кнопка добавления в корзину - МАЛЕНЬКАЯ И КРУГЛАЯ */
+.btn-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border-width: 2px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 18px;
+    margin-left: 35px;
+    margin-top:-6px;
+    color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0);
+
+}
+.btn-circle:visited {
+    color: rgb(255, 255, 255);
+}
+.btn-circle:hover {
+    color: rgb(213, 164, 247);
+}
+
+
+/* Каталог под навбаром */
+ul.catalog {
+    margin-top: -20px;
+    margin-bottom: 80px;
+}
+ul.catalog li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 40px;
+   }
+
+
+/* кнопка сортировки */
+.btn-sort {
+    width: 125px;
+    height: 45px;
+    border-radius: 20px;
+    border-width: 2px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 17px;
+    margin-right: 33px;
+    color: rgb(197, 196, 196);
+    border-color: rgb(197, 196, 196);
+    background: rgba(255, 255, 255, 0);
+
+}
+.btn-sort:visited {
+    color: rgba(197, 196, 196);
+    border-color: rgba(197, 196, 196);
+}
+.btn-sort:hover {
+    color: rgb(200, 255, 138);
+    border-color: rgb(200, 255, 138);
+}
+
+
+/* кнопки добавления в корзину и список желаний при детальном просмотре товара */
+.btn-add {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    background: rgb(115, 84, 138);
+    margin-right: 5px; 
+}
+.btn-add:visited {
+    color: rgb(255, 255, 255);
+    background: rgb(115, 84, 138);
+}
+.btn-add:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(115, 84, 138);
+}
+
+
+/* кнопка оформления заказа из корзины */
+.btn-checkout {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    line-height:45px;
+    height:45px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    background: rgb(84, 138, 108);
+    text-decoration: none;
+}
+.btn-checkout:visited {
+    color: rgb(255, 255, 255);
+    background: rgb(84, 138, 108);
+}
+.btn-checkout:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(97, 155, 124);
+}
+
+
+/* кнопка удаления товара из корзины */
+.btn-remove {
+    font-size: 22px;
+    color: rgb(167, 163, 163);
+    text-decoration: none;
+}
+.btn-remove:visited {
+    color: rgb(167, 163, 163);
+}
+.btn-remove:hover {
+    color: rgb(200, 255, 138);
+}
+
+
+/* таблица корзины */
+td {
+    vertical-align: top;
+    font-size: 17px;
+    padding-left: 26px;
+    padding-right: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+tr {
+    border-top:1px solid rgb(73, 73, 72);
+}
+td.moved {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    vertical-align: top;
+    font-size: 17px;
+    padding-left: 26px;
+    padding-right: 26px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* панель изменения количества товаров в корзине */
+.cartQuantity {
+    border-width: 1px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: rgb(58, 50, 61);
+    background-color: rgb(58, 50, 61);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 35px;
+}
+.cartQuantityBtns {
+    margin: auto;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 22px;
+    color: rgb(167, 163, 163);
+    text-decoration: none;
+}
+.cartQuantityBtns:visited {
+    color: rgb(167, 163, 163);
+}
+.cartQuantityBtns:hover {
+    color: rgb(200, 255, 138);
+}
+.cartQuantityNumber {
+    font-size: 18px;
+    margin: auto;
+    color: rgb(167, 163, 163);
+    padding-left: 6px;
+    padding-right: 6px;
+}

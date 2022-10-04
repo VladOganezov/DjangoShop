@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mx-3">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-4">
+                <img width="380" height="540" src="{{ product.image.url }}">
+            </div>
+
+            <div class="col-8">
+                <div class="container">
+            
+                    <div class="card text-start card bg-transparent" style="border-color: rgb(43, 38, 41); width: 780px;">
+                        <div class="card-header card bg-transparent" style="border-color: rgb(43, 38, 41);">
+                            <h1 class="baseText">{{ product.name }}</h1>
+                            <p class="baseText">{{ product.price }}руб</p>
+                            <div>
+                                <a href="{{ product.add_to_cart }}" type="button" class="btn btn-add"><i class="bi bi-cart"></i> В корзину</a>
+                                <a href="#" type="button" class="btn btn-add"><i class="bi bi-heart"></i></a>
+                            </div>
+                            <hr style="color: rgb(200, 255, 138); padding: 0; margin-right: -19px;">
+                        </div>
+                        <div class="card-body">
+                            <p class="smallBaseText">Описание</p>
+                            <p class="descriptionText">{{ product.description }}</p>
+                        </div>
+                    </div>
+                    <div class="card text-start" style="background-color:rgb(58, 50, 61); margin-top: 20px; margin-left: 15px; border-color: rgba(213, 164, 247, 0); width: 768px;">
+                        <div class="card-body">
+                            <p class="smallBaseText text-start">Характеристики</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p style="color: rgb(171, 172, 169); font-size: 15px; margin-bottom: -5px;">Категория</p>
+                                    <a class="hrefProductText" href="{{ product.category.get_absolute_url }}">{{ product.category }}</a>    
+                                </div>
+                                {% if product.franchise %}
+                                <div class="col">
+                                    <p style="color: rgb(171, 172, 169); font-size: 15px; margin-bottom: -5px;">Франшиза/фандом</p>
+                                    <a class="hrefProductText" href="{{ product.franchise.get_absolute_url }}">{{ product.franchise }}</a>   
+                                </div>
+                                {% else %}{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>    
+</div>
+
+{% endblock %}

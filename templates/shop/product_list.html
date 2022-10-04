@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container mx-3">
+    <div class="container mb-3">
+        <div class="row">
+            <div class="col text-start">
+                <h class="baseText">
+                    {% if category %}{{ category.name }}
+                    {% elif franchise %}{{ franchise.name }}
+                    {% else %}Все товары{% endif %}  
+                </h>
+            </div>
+            <div class="col text-end">
+                <a href="#" type="button" class="btn btn-sort">сортировка</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Фильтры товаров -->
+        <div class="col-2">       
+            <div class="container">
+                <h class="smallBaseText">Фильтры</h>
+                <div style="margin-top: 20px;">
+                    <a class="filterText" data-bs-toggle="collapse" href="#categoryCollapse" role="button" aria-expanded="false" aria-controls="categoryCollapse">Категории</a>
+                    <div class="collapse" id="categoryCollapse">
+                        <ul style="background-color:rgb(43, 38, 41); width: 160px; padding-left: 0; list-style-type: none;">
+                            <li style="margin-top: 12px;" {% if not category %} class="selected" {% endif %}>
+                                <hr style="color: rgb(200, 255, 138); padding: 0; margin: 0px;">
+                                <a class="hrefText" href="{% url 'shop:product_list' %}">Все</a>
+                            </li>
+                            
+                            {% for c in categories %}
+                            <li {% if category.slug == c.slug %} class="selected" {% endif %}>
+                                <a class="hrefText" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                            </li>
+                            
+                            {% endfor %}
+                        </ul>
+                    </div>    
+                </div>
+                <div style="margin-top: 5px;">
+                    <a class="filterText" data-bs-toggle="collapse" href="#franchiseCollapse" role="button" aria-expanded="false" aria-controls="franchiseCollapse">Франшизы</a>
+                    <div class="collapse" id="franchiseCollapse">
+                        <ul style="background-color:rgb(43, 38, 41); width: 160px; padding-left: 0; list-style-type: none;">
+                            <li style="margin-top: 12px;" {% if not franchise %} class="selected" {% endif %}>
+                                <hr style="color: rgb(200, 255, 138); padding: 0; margin: 0px;">
+                                <a class="hrefText" href="{% url 'shop:product_list' %}">Все</a>
+                            </li>
+                            {% for f in franchises %}
+                            <li {% if franchise.slug == f.slug %} class="selected" {% endif %}>
+                                <a class="hrefText" href="{{ f.get_absolute_url }}">{{ f.name }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <!-- Фильтры товаров -->
+
+
+        <div class="col-10">
+            <div class="container">
+                <div class="row row-cols-4">
+                    {% for product in products %}
+
+                    <div class="col">
+                        <div class="card bg-transparent" style="border-color: rgba(255, 255, 255, 0); height: 380px; width: 200px;">
+                            <a class="hrefProductText" href="{{ product.get_absolute_url }}">
+                                <img class="#" width="200" height="280" src="{{ product.image.url }}" class="card-img-top"
+                                    alt="#">
+                                <p style="margin-top:10px;">{{ product.name }}</p>
+                            </a>
+                        </div>
+                        <div class="row row-cols-2 ">
+                            <div class="col">
+                                <p class="smallBaseText">{{ product.price }}р</p>
+                            </div>
+                            <div class="col">
+                                <a type="button" href="{{ product.add_to_cart }}" class="btn btn-circle"><i class="bi bi-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

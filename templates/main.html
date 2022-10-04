@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container mx-3">
+
+    <div class="container">
+        <div class="row row-cols-5">
+            {% for product in products %}
+
+            <div class="col">
+                <div class="card bg-transparent" style="border-color: rgba(255, 255, 255, 0); height: 380px; width: 200px;">
+                    <a class="hrefProductText" href="{{ product.get_absolute_url }}">
+                        <img class="#" width="200" height="280" src="{{ product.image.url }}" class="card-img-top"
+                            alt="#">
+                        <p style="margin-top:10px;">{{ product.name }}</p>
+                    </a>
+                </div>
+                <div class="row row-cols-2 ">
+                    <div class="col">
+                        <p class="smallBaseText">{{ product.price }}р</p>
+                    </div>
+                    <div class="col">
+                        <a type="button" href="#" class="btn btn-circle"><i class="bi bi-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

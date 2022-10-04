@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mx-6 px-4">
+
+    
+    <div class="row mx-3" >
+        {% if cart.get_total_price > 0 %}
+        <h class="baseText" style="margin-bottom: 10px;">Корзина</h>
+        <div class="col-lg-9">
+            <table class="tableCart">
+                <tbody>
+                    {% for item in cart %}
+                    <tr>
+                        <td>
+                            <img src="{{ item.product.image.url }}" class="card-img-top" style="height: 160px; width: 110px; display: block; "data-holder-rendered="true">
+                        </td>
+                        <td>
+                            <a class="hrefProductText" href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                        </td>
+                        <td>
+                            <div class="cartQuantity">
+                                {% if item.quantity > 1 %}
+                                    <a href="{{ item.product.remove_one_from_cart }}" role="button" class="cartQuantityBtns">
+                                        <i class="bi bi-dash"></i>
+                                    </a>
+                                {% else %}
+                                    <a role="button" class="cartQuantityBtns">
+                                        <i class="bi bi-dash"></i>
+                                    </a>
+                                {% endif %}
+                                    <p class="cartQuantityNumber">{{ item.quantity }}</p>
+                                {% if item.quantity <= item.product.stock %}
+                                    <a href="{{ item.product.add_to_cart }}" role="button" class="cartQuantityBtns">
+                                        <i class="bi bi-plus"></i>
+                                    </a>
+                                {% else %}
+                                    <a role="button" class="cartQuantityBtns">
+                                        <i class="bi bi-plus"></i>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>
+                            {{item.total_price}} руб
+                            <p style="color: rgb(167, 163, 163); font-size: 14px;">{{item.price}} руб/шт</p>
+                        </td>
+                        <td class="moved">
+                            <a href="#" role="button" class="btn-remove">
+                                <i class="bi bi-heart"></i>
+                            </a>
+                            <a href="{{ item.product.remove_from_cart }}" role="button" class="btn-remove">
+                                <i class="bi bi-trash3"></i>
+                            </a>    
+                        </td> 
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-3" >
+            <div class="row" style="margin-bottom: 20px; background-color:rgb(58, 50, 61); border-color: rgba(58, 50, 61, 0);height: 110px;">
+                <p class="descriptionText" style="padding-top: 10px;">Введите промокод</p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" style="box-shadow:none; border: 0; background-color: rgb(43, 38, 41); color: rgb(255, 255, 255);" placeholder="Промокод">
+                    <button style="color: rgb(255, 255, 255); background-color: rgb(84, 138, 108);" class="btn" type="submit">
+                        <i style="font-size: 22px;" class="bi bi-check-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="background-color:rgb(58, 50, 61); border-color: rgba(58, 50, 61, 0);height: 140px;">
+                <div class="col-6">
+                    <p class="descriptionText" style="font-size: 15px; padding-top: 10px;" align="left">Товары ({{ cart.get_total_quantity }})</p>
+                    <p class="descriptionText" style="font-size: 15px; padding-top: 2px;" align="left">Итого:</p>
+                </div>
+                <div class="col-6">
+                    <p class="descriptionText" style="font-size: 15px; padding-top: 10px;" align="right">{{ cart.get_total_price }}руб</p>
+                    <p class="descriptionText" style="font-size: 20px;" align="right">{{ cart.get_total_price }}руб</p>
+                </div>
+                <a href="#" type="button" class="btn-checkout"><p class="smallBaseText">Оформить заказ</p></a>
+            </div>
+        </div>
+
+        {% else %}
+            <h class="baseText" style="margin-bottom: 500px; font-size:27px;">Ваша корзина пуста.
+            <a class="hrefText" style="font-size:27px;" href="{% url "shop:product_list" %}">К списку товаров</a>
+            </h2>
+        {% endif %}
+                
+            
+           
+    </div>
+</div>
+{% endblock %}
