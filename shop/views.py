@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product, Franchise
 from cart.cart import Cart
+from django.views.generic import ListView
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def args(req):
@@ -31,6 +33,11 @@ def main(request, category_slug=None):
                         'cart': cart
                     })
 
+# class main(ListView):
+#     model = Product
+#     template_name = "main.html"
+#     paginate_by = 10
+
 
 def product_list(request, category_slug=None, franchise_slug=None):
     franchise = None
@@ -45,15 +52,51 @@ def product_list(request, category_slug=None, franchise_slug=None):
     if franchise_slug:
         franchise = get_object_or_404(Franchise, slug=franchise_slug)
         products = products.filter(franchise=franchise)
-    return render(request, 'shop/product_list.html', 
+    """Pagination"""
+    if 'page' in request.GET:
+        page = request.GET['page']
+    else:
+        page = 1
+    paginator = Paginator(products, 8)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+
+    context = {
+        'products': products
+    }
+    return render(request, 'shop/product_list.html', context |
                     {   
                         'categories': categories,
                         'franchises': franchises,
                         'category': category,
                         'franchise': franchise,
                         'products': products,
-                        'cart': cart
+                        'cart': cart,  
                     })
+
+
+# def index_page(request):
+#     products = Product.objects.all().order_by('-id')
+#     if 'page' in request.GET:
+#         page = request.GET['page']
+#     else:
+#         page = 1
+#     paginator = Paginator(products, 10)
+#     try:
+#         products = paginator.page(page)
+#     except PageNotAnInteger:
+#         products = paginator.page(1)
+#     except EmptyPage:
+#         products = paginator.page(paginator.num_pages)
+
+#     context = {
+#         'products': products
+#     }
+#     return render(request, "pages/product_list.html", context)
 
 
 def product_detail(request, id, slug):

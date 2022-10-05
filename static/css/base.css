@@ -394,3 +394,32 @@ td.moved {
     padding-left: 6px;
     padding-right: 6px;
 }
+
+
+.pagination {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 25px;
+    color: rgb(167, 163, 163);
+    text-decoration: none;
+}
+.pagination:visited {
+    color: rgb(167, 163, 163);
+}
+.pagination:hover {
+    color: rgb(200, 255, 138);
+}
+
+.paginationCurrent {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 25px;
+    color: rgb(200, 255, 138);
+    text-decoration: none;
+}
+.paginationCurrent:visited {
+    color: rgb(200, 255, 138);
+}
+.paginationCurrent:hover {
+    color: rgb(200, 255, 138);
+}
