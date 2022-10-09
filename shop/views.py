@@ -79,25 +79,6 @@ def product_list(request, category_slug=None, franchise_slug=None):
                     })
 
 
-# def index_page(request):
-#     products = Product.objects.all().order_by('-id')
-#     if 'page' in request.GET:
-#         page = request.GET['page']
-#     else:
-#         page = 1
-#     paginator = Paginator(products, 10)
-#     try:
-#         products = paginator.page(page)
-#     except PageNotAnInteger:
-#         products = paginator.page(1)
-#     except EmptyPage:
-#         products = paginator.page(paginator.num_pages)
-
-#     context = {
-#         'products': products
-#     }
-#     return render(request, "pages/product_list.html", context)
-
 
 def product_detail(request, id, slug):
     cart = Cart(request)

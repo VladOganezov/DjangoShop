@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="row mx-5" >
+<h class="baseText">Оформление заказа</h>
+    <div class="col-xl-5">
+        <table style="color: rgb(255, 255, 255);">
+            <form id="Order" method="POST" >
+            {{ form.as_table }}
+        
+            {% csrf_token %}
+            </form>
+        </table>
+        
+    </div>
+    <div class="col-xl-7">
+    
+        <div class="row" style="background-color:rgb(58, 50, 61); border-color: rgba(58, 50, 61, 0);height: auto;">
+            <h3 class="smallBaseText" style="margin-top: 10px;">Ваш заказ</h3>
+            <ul style="list-style-type: none;">
+                {% for item in cart %}
+                <li class="descriptionText" style="font-size: 15px; padding-top: 10px; color: rgb(186, 188, 189);">
+                    {{ item.quantity }} x {{ item.product.name }}:
+                    <span>{{ item.total_price }} рублей</span>
+                </li class="descriptionText" style="font-size: 15px; padding-top: 10px;">
+                {% endfor %}
+            </ul>
+            <p class="smallBaseText">Итого: {{ cart.get_total_price }} рублей</p>
+            <input class="submit-btn" type="submit" form="Order">
+        </div>
+    </div>
+
+</div>
+{% endblock %}
