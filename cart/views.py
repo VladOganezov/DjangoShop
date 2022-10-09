@@ -20,7 +20,7 @@ def cartRemove(request, id):
     cart.remove(product)
     return redirect('cart:cartView')
 
-def cartRemoveOne(request,id):
+def cartRemoveOne(request, id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=id)
     cart.remove_one(product)

@@ -423,3 +423,36 @@ td.moved {
 .paginationCurrent:hover {
     color: rgb(200, 255, 138);
 }
+
+.myfield{
+    border:1px solid #ccc; 
+    border-radius:5px;
+    height:30px;
+    width:250px;
+    margin: 10px 10px 10px 0;
+    box-shadow:none;
+    background-color: rgb(58, 50, 61);
+    color: rgb(255, 255, 255);
+    
+}
+
+
+.submit-btn {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    line-height:40px;
+    border: none;
+    height:45px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    background: rgb(84, 138, 108);
+    text-decoration: none;
+}
+.submit-btn:visited {
+    color: rgb(255, 255, 255);
+    background: rgb(84, 138, 108);
+}
+.submit-btn:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(97, 155, 124);
+}

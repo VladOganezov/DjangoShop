@@ -6,9 +6,9 @@
 
     
     <div class="row mx-3" >
-        {% if cart.get_total_price > 0 %}
+        {% if cart %}
         <h class="baseText" style="margin-bottom: 10px;">Корзина</h>
-        <div class="col-lg-9">
+        <div class="col-xl-9">
             <table class="tableCart">
                 <tbody>
                     {% for item in cart %}
@@ -61,7 +61,7 @@
             </table>
         </div>
 
-        <div class="col-lg-3" >
+        <div class="col-xl-3" >
             <div class="row" style="margin-bottom: 20px; background-color:rgb(58, 50, 61); border-color: rgba(58, 50, 61, 0);height: 110px;">
                 <p class="descriptionText" style="padding-top: 10px;">Введите промокод</p>
                 <div class="input-group mb-3">
@@ -80,7 +80,7 @@
                     <p class="descriptionText" style="font-size: 15px; padding-top: 10px;" align="right">{{ cart.get_total_price }}руб</p>
                     <p class="descriptionText" style="font-size: 20px;" align="right">{{ cart.get_total_price }}руб</p>
                 </div>
-                <a href="#" type="button" class="btn-checkout"><p class="smallBaseText">Оформить заказ</p></a>
+                <a href="{% url "orders:order_create" %}" type="button" class="btn-checkout"><p class="smallBaseText">Оформить заказ</p></a>
             </div>
         </div>
 
