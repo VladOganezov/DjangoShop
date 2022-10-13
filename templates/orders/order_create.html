@@ -24,11 +24,17 @@
                 <li class="descriptionText" style="font-size: 15px; padding-top: 10px; color: rgb(186, 188, 189);">
                     {{ item.quantity }} x {{ item.product.name }}:
                     <span>{{ item.total_price }} рублей</span>
-                </li class="descriptionText" style="font-size: 15px; padding-top: 10px;">
+                </li>
                 {% endfor %}
+                {% if cart.coupon %}
+                <li class="descriptionText" style="font-size: 15px; padding-top: 10px; color: rgb(186, 188, 189);">
+                    {{ cart.coupon.discount }}% скидка
+                    <span>- {{ cart.get_discount|floatformat:"2" }}руб</span>
+                </li>
+                {% endif %}
             </ul>
-            <p class="smallBaseText">Итого: {{ cart.get_total_price }} рублей</p>
-            <input class="submit-btn" type="submit" form="Order">
+            <p class="smallBaseText">Итого: {{ cart.get_total_price_after_discount|floatformat:"2" }} рублей</p>
+            <input class="submit-btn" type="submit" form="Order" value="Оформить">
         </div>
     </div>
 

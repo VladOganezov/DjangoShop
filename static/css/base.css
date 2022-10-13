@@ -436,6 +436,18 @@ td.moved {
     
 }
 
+.couponForm{
+    box-shadow:none;
+    border: 0;
+    border-radius:7px;
+    background-color: rgb(43, 38, 41);
+    color: rgb(255, 255, 255);
+    height:40px;
+    width:200px;
+    margin: 0px 0px 10px 0;
+    
+}
+
 
 .submit-btn {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -455,4 +467,28 @@ td.moved {
 .submit-btn:hover {
     color: rgb(255, 255, 255);
     background: rgb(97, 155, 124);
+}
+
+.btn-coupon {
+    width: 46px;
+    height: 46px;
+    border-radius: 23px;
+    border-width: 2px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: -5px;
+    margin-left: 25px;
+    font-size: 18px;
+    border: none;
+    color: rgb(209, 208, 208);
+    background-color: rgb(84, 138, 108);
+}
+
+.btn-coupon:visited {
+    color: rgb(255, 255, 255);
+}
+.btn-coupon:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(97, 155, 124);
 }
