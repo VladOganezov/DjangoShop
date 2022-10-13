@@ -4,11 +4,22 @@ from shop.models import Category
 from .forms import OrderCreateForm
 from cart.cart import Cart
 from .tasks import order_created
+from django.contrib.admin.views.decorators import staff_member_required
+from django.shortcuts import get_object_or_404
+from .models import Order
+from django.contrib.sessions.models import Session
+
+
+@staff_member_required
+def admin_order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    return render(request, 'orders/admin/orders/order/detail.html', {'order': order})
 
 
 def order_create(request):
     categories = Category.objects.all()
     cart = Cart(request)
+    
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
         if form.is_valid():
@@ -19,10 +30,10 @@ def order_create(request):
                                          price=item['price'],
                                          quantity=item['quantity'])
             # clear the cart
-            # cart.clear()
+            del request.session['cart']
             # launch asynchronous task
             order_created.send(order.id)
-            
+
             return render(request, 'orders/order_created.html',
                           {'order': order, 'categories': categories,})
     else:

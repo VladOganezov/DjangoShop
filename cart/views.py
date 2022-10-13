@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .cart import Cart
 from shop.models import Product, Category
+from coupons.forms import CouponApplyForm
+
 
 def add(request, id):
     cart = Cart(request)
@@ -11,8 +13,10 @@ def add(request, id):
 def cartView(request):
     cart = Cart(request)
     categories = Category.objects.all()
+    coupon_apply_form = CouponApplyForm()
     return render(request, 'cart/cart.html', {'cart':cart,
-                                              'categories': categories,})
+                                              'categories': categories,
+                                              'coupon_apply_form': coupon_apply_form})
 
 def cartRemove(request, id):
     cart = Cart(request)
