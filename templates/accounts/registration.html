@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5 row mx-4" style="width: 96%; margin-bottom: 200px;">
+    {% if user_form.errors %}   
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Ошибка!</strong>
+            <p>Пароли должны сопадать</p>
+            <p>Возможно пользователь с такой почтой уже существует</p>
+            <label type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button></label>
+        </div>
+    {% endif %}
+
+    <h class="baseText">Создание профиля</h>
+    <div class="col-xl-5">
+        <table style="color: rgb(255, 255, 255); margin-bottom: 10px;">
+        <form id="Register" method="POST" action="">
+            {% csrf_token %}
+            {{ user_form.as_table }}        
+        </form>
+        </table>
+        <button type="submit" form="Register" value="Оформить" class="btn submit-btn" style="font-size: 16px; line-height:30px; width: 100px;">Создать</button>
+        <a href="{% url 'login' %}" class="hrefText" style="margin-left: 10px;">У меня уже есть профиль</a>
+    </div>
+
+</div>
+{% endblock %}

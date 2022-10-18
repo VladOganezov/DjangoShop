@@ -7,10 +7,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls', namespace='cart')),
-    path('users/', include('users.urls')),
-    path('users/', include('django.contrib.auth.urls')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('coupons/', include('coupons.urls', namespace='coupons')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('registration/', include('accounts.urls')),
     path('', include('shop.urls', namespace='shop')), # По основному адресу будет открывать главную страницу из приложения shop
     
 ]

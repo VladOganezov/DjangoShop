@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<div class="container mx-6 px-4">
+<div class="container mx-6 px-4" style="margin-bottom: 600px;">
 
     
     <div class="row mx-3" >
@@ -84,13 +84,13 @@
             {% if cart.coupon %}
             <div class="row" style="background-color:rgb(58, 50, 61); border-color: rgba(58, 50, 61, 0);height: auto;">
                 <div class="col-8">
-                    <p class="descriptionText" style="font-size: 15px; padding-top: 10px;" align="left">Товары ({{ cart.get_total_quantity }})</p>
-                    <p class="descriptionText" style="font-size: 15px; padding-top: 10px;" align="left">"{{ cart.coupon.code }}" купон ({{ cart.coupon.discount }}%)</p>
-                    <p class="descriptionText" style="font-size: 15px; padding-top: 4px;" align="left">Итого:</p>
+                    <p class="descriptionText" style="font-size: 14px; padding-top: 10px;">Товары ({{ cart.get_total_quantity }})</p>
+                    <p class="descriptionText" style="font-size: 14px; padding-top: 10px;" align="left">"{{ cart.coupon.code }}" купон ({{ cart.coupon.discount }}%)</p>
+                    <p class="descriptionText" style="font-size: 14px; padding-top: 4px;" align="left">Итого:</p>
                 </div>
                 <div class="col-4">
-                    <p class="descriptionText" style="font-size: 15px; padding-top: 10px; margin-left:0px;" align="end">{{ cart.get_total_price }}руб</p>
-                    <p class="descriptionText" style="font-size: 15px; padding-top: 10px; margin-left:0px; color:rgb(193, 68, 68)" align="end">-{{ cart.get_discount|floatformat:"2" }}руб</p>
+                    <p class="descriptionText" style="font-size: 14px; padding-top: 10px; margin-left:0px;" align="end">{{ cart.get_total_price }}руб</p>
+                    <p class="descriptionText" style="font-size: 14px; padding-top: 10px; margin-left:0px; color:rgb(193, 68, 68)" align="end">-{{ cart.get_discount|floatformat:"2" }}руб</p>
                     <p class="descriptionText" style="font-size: 20px; margin-left:-20px;" align="end"> {{ cart.get_total_price_after_discount|floatformat:"2" }}руб</p>
                 </div>
                 <a href="{% url "orders:order_create" %}" type="button" class="btn-checkout"><p class="smallBaseText">Оформить заказ</p></a>
@@ -114,7 +114,7 @@
         </div>
 
         {% else %}
-            <h class="baseText" style="margin-bottom: 500px; font-size:27px;">Ваша корзина пуста.
+            <h class="baseText" style="font-size:27px;">Ваша корзина пуста.
             <a class="hrefText" style="font-size:27px;" href="{% url "shop:product_list" %}">К списку товаров</a>
             </h2>
         {% endif %}

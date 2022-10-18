@@ -7,7 +7,7 @@ from .tasks import order_created
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import get_object_or_404
 from .models import Order
-from django.contrib.sessions.models import Session
+
 
 
 @staff_member_required

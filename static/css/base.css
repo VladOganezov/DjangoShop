@@ -436,6 +436,18 @@ td.moved {
     
 }
 
+.userfield{
+    box-shadow:none;
+    border:1px solid #ccc; 
+    border-radius:5px;
+    background-color: rgb(43, 38, 41);
+    color: rgb(255, 255, 255);
+    height: 45px;
+    width:100%;
+    margin: 10px 0px 0px 0px;
+    padding-left: 5px;
+}
+
 .couponForm{
     box-shadow:none;
     border: 0;
@@ -492,3 +504,4 @@ td.moved {
     color: rgb(255, 255, 255);
     background-color: rgb(97, 155, 124);
 }
+

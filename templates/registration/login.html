@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container mt-5 row mx-4" style="margin-bottom: 400px;">
+    
+        <div class="col-6 mx-start">
+            {% if form.errors %}   
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Ошибка!</strong> Проверьте правильность введенных данных.
+                    <label type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button></label>
+                </div>
+   
+            {% endif %}
+
+        
+            <h class="baseText">Вход в кабинет покупателя</h>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group" style="margin-top: 15px;">
+                    <input class="userfield" type="text" id="login" name="username" placeholder="email">
+                </div>
+
+                <div class="form-group" style="margin-top: 15px;">
+                    <input class="userfield" type="password"  id="pwd" name="password" placeholder="пароль">
+                </div>
+                
+                <p style="margin-top:10px;">
+                    <a class="hrefText" href="{% url 'password_reset' %}"> Забыли пароль?</a>
+                    <a href="{% url 'accounts:registration' %}" class="hrefText" style="margin-left:5px;">Зарегистрироваться</a>
+                </p>
+
+                <button type="submit" class="btn submit-btn" style="font-size: 16px; line-height:30px; width: 100px;">Войти</button>   
+            </form>
+            
+        </div>
+
+    </div>
+
+{% endblock %}
